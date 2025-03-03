@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Sharing Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>File Sharing Platform</h1>
+
+    <!-- Login/Register Section -->
+    <div id="auth-section">
+      <h2>Login / Register</h2>
+      <form id="auth-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" id="login-btn">Login</button>
+        <button type="button" id="register-btn">Register</button>
+      </form>
+      <p id="auth-message"></p>
+    </div>
+
+    <!-- File Upload Section -->
+    <div id="file-section" class="hidden">
+      <h2>Upload a File</h2>
+      <form id="upload-form">
+        <input type="file" id="file-input" required>
+        <button type="submit">Upload</button>
+      </form>
+      <p id="upload-message"></p>
+
+      <h2>Your Files</h2>
+      <ul id="file-list"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
