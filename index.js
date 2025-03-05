@@ -1,15 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import authRoutes from './routes/authRoutes.js';
+import fileRoutes from './routes/fileRoutes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import authRoutes from './routes/authroutes.js'; // Correct import
-import fileRoutes from './routes/fileroutes.js';
 
-// Configure environment variables
 dotenv.config();
 
-// Create Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -21,15 +19,15 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 
 // Serve static files from the "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public')));
 
 // Routes
-app.use('/auth', authRoutes); // Correct usage
+app.use('/auth', authRoutes);
 app.use('/files', fileRoutes);
 
-// Root route
+// Root route to serve the frontend
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Connect to MongoDB
